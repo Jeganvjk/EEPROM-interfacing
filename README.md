@@ -81,6 +81,7 @@ return rData;</br>
 ![de90ac47-284a-4301-a562-013c9e6fa3b8](https://github.com/Jeganvjk/EEPROM-interfacing/assets/132189820/28ac31e5-3cdc-4d82-b787-dcc7476baaa1)
 
 ## OUTPUT:
+![output](https://github.com/Jeganvjk/EEPROM-interfacing/assets/132189820/2a6e1ef8-68d7-4d9a-9dfb-4a6a902cd758)
 
 ## RESULT:
 
