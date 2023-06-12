@@ -39,7 +39,46 @@ The address pins, A0, A1, and A2, which are pins 1, 2, and 3 are all connected t
 
 ## PROGRAM:
 
+#include "Wire.h"</br>
+#define EEPROM_I2C_ADDRESS 0x50</br>
+void setup()</br>
+{</br>
+Wire.begin();</br>
+Serial.begin(9600);</br>
+int address = 0;</br>
+byte val = 120;</br>
+writeAddress(address, val);</br>
+byte readVal = readAddress(address);</br>
+Serial.print("The returned value is ");</br>
+Serial.println(readVal);</br>
+}</br>
+void loop()</br>
+{</br>
+
+}</br>
+void writeAddress(int address, byte val)</br>
+{</br>
+Wire.beginTransmission(EEPROM_I2C_ADDRESS);</br>
+Wire.write((int)(address >> 8)); // MSB</br>
+Wire.write((int)(address & 0xFF)); // LSB</br>
+Wire.write(val);</br>
+Wire.endTransmission();</br>
+delay(5);</br>
+}</br>
+byte readAddress(int address)</br>
+{</br>
+byte rData = 0xFF;</br>
+Wire.beginTransmission(EEPROM_I2C_ADDRESS);</br>
+Wire.write((int)(address >> 8)); // MSB</br>
+Wire.write((int)(address & 0xFF)); // LSB</br>
+Wire.endTransmission();</br>
+Wire.requestFrom(EEPROM_I2C_ADDRESS, 1);</br>
+rData = Wire.read();</br>
+return rData;</br>
+}</br>
+
 ## CIRCUIT DIAGRAM:
+![de90ac47-284a-4301-a562-013c9e6fa3b8](https://github.com/Jeganvjk/EEPROM-interfacing/assets/132189820/28ac31e5-3cdc-4d82-b787-dcc7476baaa1)
 
 ## OUTPUT:
 
